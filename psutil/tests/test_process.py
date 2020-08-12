@@ -622,6 +622,11 @@ class TestProcess(PsutilTestCase):
             if not nt.path.startswith('['):
                 assert os.path.isabs(nt.path), nt.path
                 if POSIX:
+                    if os.path.exists(nt.path):
+                        print('Valid Path')
+                    else:
+                        print('Unvalid/Unaccissible path')
+
                     try:
                         assert os.path.exists(nt.path) or \
                             os.path.islink(nt.path), nt.path
